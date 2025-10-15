@@ -3,27 +3,17 @@ function isPiBrowser() {
   return /PiBrowser/i.test(navigator.userAgent);
 }
 
-// Load Pi SDK
-function loadPiSDK(callback) {
-  if (window.Pi) {
-    callback();
-    return;
-  }
-  const script = document.createElement('script');
-  script.src = 'https://sdk.minepi.com/pi-sdk.js';
-  script.onload = callback;
-  document.head.appendChild(script);
-}
-
 // Handle Pi authentication
 function piLogin() {
   if (!isPiBrowser()) {
     alert('Please use Pi Browser to log in with Pi Network.');
     return;
   }
-  loadPiSDK(() => {
+  if (window.Pi) {
     window.Pi.authenticate(['username'], onAuthSuccess, onAuthFailure);
-  });
+  } else {
+    alert('Pi SDK not loaded.');
+  }
 }
 
 function onAuthSuccess(authResult) {

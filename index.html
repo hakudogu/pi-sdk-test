@@ -1,21 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>pi-auth</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
-  <script>
-    // Wait for the SDK to load before initializing
-    window.addEventListener('DOMContentLoaded', function() {
-      if (window.Pi) {
-        Pi.init({ version: "2.0", sandbox: true });
-      }
-    });
-  </script>
-  <script src="pi-auth.js"></script>
-</head>
-<body>
-  <div id="app"></div>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hello World</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+    <script>Pi.init({ version: "2.0", sandbox: true })</script>
+    <script type="module" src="dragon.js"></script>
+<script type="module" src="landingPage.js"></script>
+
+<script type="module" src="pisdk.js"></script>
+  </head>
+  <body>
+    <main id="app"></main>
+  </body>
+
 </html>
